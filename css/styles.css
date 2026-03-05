@@ -186,3 +186,85 @@ h1 { font-size: 3.5rem; margin: 20px 0; line-height: 1.1; }
     background: rgba(255, 255, 255, 0.1);
     border-color: #10b981; /* Tu color verde esmeralda */
 }
+/* Paleta de Colores de Contacto */
+:root {
+    --wa-color: #25d366;
+    --ig-color: #e1306c;
+    --mail-color: #3b82f6;
+}
+
+.contact-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px !important;
+    text-decoration: none;
+    color: white;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-item i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.contact-item span {
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+/* Efectos Hover por Color */
+.contact-item.wa:hover {
+    border-color: var(--wa-color);
+    box-shadow: 0 0 30px rgba(37, 211, 102, 0.2);
+    transform: translateY(-10px);
+}
+.contact-item.wa i { color: var(--wa-color); }
+
+.contact-item.ig:hover {
+    border-color: var(--ig-color);
+    box-shadow: 0 0 30px rgba(225, 48, 108, 0.2);
+    transform: translateY(-10px);
+}
+.contact-item.ig i { color: var(--ig-color); }
+
+.contact-item.mail:hover {
+    border-color: var(--mail-color);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+    transform: translateY(-10px);
+}
+.contact-item.mail i { color: var(--mail-color); }
+
+/* Animación de entrada */
+.contact-item {
+    animation: fadeInScale 0.6s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
