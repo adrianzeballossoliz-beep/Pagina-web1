@@ -13,112 +13,195 @@
     <div class="light-orbs">
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
     </div>
 
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">ADRIAN</div>
+            <div class="logo">ADRIAN<span></div>
             <ul class="nav-links">
                 <li><a href="#inicio">Perfil</a></li>
                 <li><a href="#trayectoria">Evolución</a></li>
+                <li><a href="#stack">Tecnologías</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#ingenieria">Carrera</a></li>
+                <li><a href="#educacion">Formación</a></li>
                 <li><a href="#contacto" class="nav-contact">Contáctame</a></li>
             </ul>
+<li class="nav-reloj">
+    <div class="reloj-container">
+        <div class="reloj-header">
+            <i class="fas fa-map-marker-alt"></i> 
+            <span>COCHABAMBA, BO</span>
         </div>
+        <div id="real-time-clock" class="reloj-display">00:00:00 | 09/03/2026</div>
+    </div>
+</li>
     </nav>
 
     <main class="main-content">
+        
         <section id="inicio" class="hero-section">
             <div class="glass-card hero-card">
                 <div class="hero-img-container">
                     <img src="images/foto_actual.jpg.jpeg" alt="Adrian" class="profile-img">
                 </div>
                 <div class="hero-text">
-                    <span class="badge">Ingeniería en Ciencia de Datos e Inteligencia de Negocios</span>
+                    <span class="badge">Futuro Ingeniero de Datos</span>
                     <h1>Hola, soy <span class="gradient-text">Adrian</span></h1>
-                    <p>Estudiante de la <strong>Universidad del Valle</strong>. Naci en cochabamba bolivia el 5 de marzo del 2007, actualmente estudio Ciencia de datos en la Universidad del Valle en cochabamba, y estoy cursando el 3er semestre</p>
+                    <p>Nacido en Cochabamba (2007). Actualmente curso el <strong>3er semestre</strong> en la <strong>Universidad del Valle</strong>, especializándome en transformar datos brutos en decisiones estratégicas mediante IA y BI.</p>
+                    <div class="hero-cta">
+                    
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="trayectoria" class="section">
+        <section id="trayectoria" class="section container">
             <h2 class="title-bg">Evolución</h2>
             <div class="evo-grid">
                 <div class="glass-card evo-item">
                     <div class="evo-img-wrapper">
-                        <img src="images/infancia_1.jpg.jpeg" alt="Mis inicios">
+                        <img src="images/infancia_1.jpg.jpeg" alt="Hobbies">
                     </div>
                     <div class="evo-content">
-                        <h3>Hobbies & Pasión</h3>
-                        <p>Aficionado al gaming competitivo en <strong>Fortnite</strong>  <strong>Clash Royale</strong> karate </strong>>
+                        <h3><i class="fas fa-gamepad"></i> Hobbies & Disciplina</h3>
+                        <p>Me gusta jugar Fortnite y Clash Royale, donde  Además, soy <strong>tambien hago karate desde los 6 </strong>, </p>
                     </div>
                 </div>
 
                 <div class="glass-card evo-item">
                     <div class="evo-img-wrapper">
-                        <img src="images/infancia_2.jpg.jpeg" alt="Trayectoria">
+                        <img src="images/infancia_2.jpg.jpeg" alt="Logros">
                     </div>
                     <div class="evo-content">
-                        <h3>Metas & Logros</h3>
-                        <p> <strong>Mi vida escolar entre 2012 hasta 2024, y entre a la universidad el primer semestre del 2025
-                          soy cinturon negro de karate 
-                        </strong></p>
+                        <h3><i class="fas fa-trophy"></i> Metas Logradas</h3>
+                        <p>Culminé mi vida escolar (2012-2024) , iniciando mi formación universitaria en 2025. Mi objetivo es terminar mi carrera de Ciencia de datos</p>
                     </div>
                 </div>
             </div>
         </section>
+
+
+
+
+
+
+        <section id="stack" class="section container">
+    <h2 class="section-title">Mi Stack Tecnológico</h2>
+    <p class="section-subtitle">Herramientas que utilizo para transformar datos en decisiones</p>
+    
+    <div class="tech-stack-container">
+        <div class="tech-card python">
+            <div class="tech-icon-wrapper">
+                <i class="fab fa-python"></i>
+            </div>
+            <h4>Python</h4>
+            <p>Análisis con Pandas & NumPy</p>
+        </div>
+
+        <div class="tech-card sql">
+            <div class="tech-icon-wrapper">
+                <i class="fas fa-database"></i>
+            </div>
+            <h4>Bases de Datos</h4>
+            <p>PostgreSQL & SQL Server</p>
+        </div>
+
+        <div class="tech-card bi">
+            <div class="tech-icon-wrapper">
+                <i class="fas fa-chart-bar"></i>
+            </div>
+            <h4>BI & Viz</h4>
+            <p>Streamlit & Power BI</p>
+        </div>
+
+        <div class="tech-card ml">
+            <div class="tech-icon-wrapper">
+                <i class="fas fa-brain"></i>
+            </div>
+            <h4>IA</h4>
+            <p>Machine Learning Models</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+
 
         <section id="proyectos" class="section container">
             <h2 class="section-title">Proyectos Destacados</h2>
             <div class="project-grid">
                 <div class="glass-card project-card">
-                    <i class="fas fa-hotel project-icon"></i>
+                    <div class="project-img-placeholder"><i class="fas fa-hotel"></i></div>
                     <div class="project-info">
                         <h3>Gestión Hotelera Interactiva</h3>
-                        <p>    Aplicación desarrollada con <strong>Streamlit</strong> y <strong>Visual Studio Code</strong> para optimizar el análisis de datos en el sector hospitalario.</p>
+                        <p>Aplicación de análisis predictivo desarrollada con <strong>Streamlit</strong>. Permite visualizar la ocupación hotelera y optimizar la toma de decisiones.</p>
                         <div class="project-tags">
-                            <span>Python</span><span>Streamlit</span><span>Data Analysis</span>
+                            <span>Python</span><span>Streamlit</span><span>Pandas</span>
                         </div>
+                    </div>
+                </div>
+                </div>
+        </section>
+
+        <section id="educacion" class="skills-section container">
+            <h2 class="section-title">Trayectoria Académica</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time">2025 - Actualidad</div>
+                    <div class="content">
+                        <h3>Ing. Ciencia de Datos </h3>
+                        <p>Universidad del Valle (Univalle) - 3er Semestre</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">2024</div>
+                    <div class="content">
+                        <h3>Bachillerato en Humanidades</h3>
+                        <p>Concluido con éxito, iniciando la transición al mundo tecnológico.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="ingenieria" class="skills-section">
-            <h2 class="section-title">Ingeniería de Datos</h2>
-            <div class="skills-container">
-                <div class="glass-card skill-box"><i class="fas fa-brain"></i><h4>Machine Learning</h4></div>
-                <div class="glass-card skill-box"><i class="fas fa-project-diagram"></i><h4>Arquitectura ETL</h4></div>
-                <div class="glass-card skill-box"><i class="fas fa-eye"></i><h4>Visualización</h4></div>
-                <div class="glass-card skill-box"><i class="fas fa-search-dollar"></i><h4>Business Intelligence</h4></div>
-                <div class="glass-card skill-box"><i class="fas fa-server"></i><h4>Bases de Datos</h4></div>
-                <div class="glass-card skill-box"><i class="fas fa-vial"></i><h4>Minería de Datos</h4></div>
-            </div>
-        </section>
+
+
 
         <section id="contacto" class="contact-section container">
-            <h2 class="section-title">Conectemos</h2>
+            <h2 class="section-title">Contactame</h2>
             <div class="contact-grid">
+                
                 <a href="https://wa.me/59164843410" target="_blank" class="glass-card contact-item wa">
                     <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
                 </a>
-                <a href="https://linkedin.com/in/tu_perfil" target="_blank" class="glass-card contact-item ln">
+
+                <a href="https://www.linkedin.com/in/adri%C3%A1n-zeballos-89b1b8360/" target="_blank" class="glass-card contact-item ln">
                     <i class="fab fa-linkedin"></i><span>LinkedIn</span>
                 </a>
-                <a href="https://instagram.com/tu_usuario" target="_blank" class="glass-card contact-item ig">
+
+                <a href="https://www.instagram.com/adrian_zeballoss/" target="_blank" class="glass-card contact-item ig">
                     <i class="fab fa-instagram"></i><span>Instagram</span>
                 </a>
-                <a href="mailto:tu_correo@gmail.com" class="glass-card contact-item mail">
+                
+                <a href="https://link.clashroyale.com/invite/friend/es?tag=8QR2YPU02&token=ncb6kctk&platform=iOS" target="_blank" class="glass-card contact-item cr">
+                    <i class="fas fa-trophy"></i><span>Clash Royale</span>
+                 </a>
+
+                <a href="mailto:adrianzeballossoliz@gmail.com" 
+                   class="glass-card contact-item mail" 
+                   onclick="alert('Si no se abre tu app de correo, escribe a: adrianzeballossoliz@gmail.com')">
                     <i class="fas fa-envelope"></i><span>Correo</span>
                 </a>
-            </div>
         </section>
-    </main>
 
-    <footer class="main-footer">
-        <p>Univalle | Cochabamba, Bolivia | 2026</p>
-    </footer>
 
+
+
+<script src="script.js"></script> 
 </body>
 </html>
+
+</html>
+

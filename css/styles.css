@@ -1,13 +1,11 @@
-/* Variables de Diseño */
 :root {
-    --primary: #10b981;
-    --secondary: #6366f1;
-    --bg-dark: #0a0c10;
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --text-main: #e2e8f0;
+    --primary: #a70042;    /* Granate Azulgrana Moderno */
+    --secondary: #004d98;  /* Azul Barça Profundo */
+    --bg-dark: #05070a;    /* Negro casi puro */
+    --glass-bg: rgba(0, 77, 152, 0.05);
+    --glass-border: rgba(167, 0, 66, 0.2);
+    --text-main: #f8fafc;
 }
-
 /* Reset y Base */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -20,11 +18,54 @@ body {
 }
 
 /* Orbes de Fondo Animados */
-.light-orbs { position: fixed; width: 100%; height: 100%; z-index: -1; }
-.orb { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.2; }
-.orb-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: var(--primary); }
-.orb-2 { bottom: -10%; right: -10%; width: 400px; height: 400px; background: var(--secondary); }
+.light-orbs { 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    z-index: -1; 
+    overflow: hidden; /* Evita que aparezcan barras de scroll por los orbes */
+}
 
+.orb { 
+    position: absolute; 
+    border-radius: 50%; 
+    filter: blur(120px); /* Un poco más de blur para que sea más suave */
+    opacity: 0.15; /* Bajamos un poco la opacidad para que no canse la vista */
+    animation: floating 20s infinite alternate ease-in-out;
+}
+
+.orb-1 { 
+    top: -10%; 
+    left: -5%; 
+    width: 600px; 
+    height: 600px; 
+    background: var(--primary); 
+    animation-duration: 25s; /* Diferentes tiempos para que no se muevan igual */
+}
+
+.orb-2 { 
+    bottom: -10%; 
+    right: -5%; 
+    width: 500px; 
+    height: 500px; 
+    background: var(--secondary); 
+    animation-duration: 18s;
+}
+
+/* El truco de la magia: La animación de movimiento */
+@keyframes floating {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(5%, 10%) scale(1.1); /* Se mueven y crecen un poco */
+    }
+    100% {
+        transform: translate(-5%, 5%) scale(1);
+    }
+}
 /* Navegación */
 .navbar {
     padding: 20px 0;
@@ -51,7 +92,6 @@ body {
 /* Contenedor Principal */
 .main-content { max-width: 1200px; margin: 0 auto; padding: 40px; }
 
-/* Tarjetas Estilo Glassmorphism */
 .glass-card {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
@@ -59,33 +99,57 @@ body {
     border-radius: 40px;
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
+
 .glass-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(16, 185, 129, 0.4);
+    /* Ahora el borde al hacer hover brilla con tu color primario */
+    border-color: var(--primary); 
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
 /* Sección Hero - Ajuste de Imagen */
-.hero-card { display: flex; align-items: center; gap: 60px; padding: 60px; }
-.hero-img-container { flex-shrink: 0; }
+.hero-card { 
+    display: flex; 
+    align-items: center; 
+    gap: 60px; 
+    padding: 60px; 
+}
+
+.hero-img-container { 
+    flex-shrink: 0; 
+}
+
 .profile-img {
-    width: 280px; /* Tamaño controlado */
+    width: 280px; 
     height: 380px;
     object-fit: cover;
     border-radius: 30px;
-    box-shadow: 20px 20px 60px rgba(0,0,0,0.3);
+    /* Un sombreado más profundo que usa el color secundario muy sutilmente */
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.5); 
+    border: 1px solid var(--glass-border);
 }
+
 .badge {
-    background: rgba(16, 185, 129, 0.1);
+    /* El fondo del badge ahora es una versión transparente del color primario */
+    background: color-mix(in srgb, var(--primary), transparent 90%);
     color: var(--primary);
     padding: 8px 16px;
     border-radius: 12px;
     font-size: 0.8rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
-h1 { font-size: 3.5rem; margin: 20px 0; line-height: 1.1; }
+
+h1 { 
+    font-size: 3.5rem; 
+    margin: 20px 0; 
+    line-height: 1.1; 
+}
+
+/* Texto en degradado usando tus nuevas variables */
 .gradient-text {
-    background: linear-gradient(to right, #10b981, #6366f1);
+    background: linear-gradient(to right, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -267,4 +331,412 @@ h1 { font-size: 3.5rem; margin: 20px 0; line-height: 1.1; }
     .contact-grid {
         grid-template-columns: 1fr;
     }
+
+
+
+.section-subtitle {
+    text-align: center;
+    color: #bbb;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+.tech-stack-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto; /* Esto centra todo el bloque */
+}
+
+.tech-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+.tech-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #00d2ff;
+    box-shadow: 0 15px 30px rgba(0, 210, 255, 0.2);
+}
+
+.tech-icon-wrapper {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 5px 10px rgba(0, 210, 255, 0.3));
+}
+
+.tech-card h4 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.tech-card p {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Estilos del Robot */
+.data-bot {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    z-index: 1000;
+    cursor: pointer;
+    animation: float Bot 3s ease-in-out infinite;
+}
+
+.bot-head {
+    width: 50px;
+    height: 40px;
+    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+    border-radius: 15px 15px 5px 5px;
+    position: relative;
+    margin: 0 auto;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.bot-eyes {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 12px;
+}
+
+.eye {
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #fff;
+    animation: blink 4s infinite;
+}
+
+.bot-body {
+    width: 40px;
+    height: 15px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+    margin: 2px auto;
+    border-radius: 5px 5px 15px 15px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Mensaje que aparece al pasar el mouse */
+.bot-msg {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: white;
+    color: #333;
+    padding: 5px 12px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0;
+    transition: 0.3s;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.guardian-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* Lo ponemos a la izquierda para no estorbar el chat */
+    width: 80px;
+    height: 80px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* El cuerpo del muñequito */
+.guardian {
+    width: 50px;
+    height: 50px;
+    background: #1a1a1a;
+    border: 2px solid #333;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Ojos durmiendo (líneas) */
+.eye-left, .eye-right {
+    width: 10px;
+    height: 2px;
+    background: #555;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+/* Burbuja de texto */
+.message-bubble {
+    background: white;
+    color: #1a1a1a;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: bold;
+    position: absolute;
+    top: -30px;
+    opacity: 0.6;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+/* --- ESTADOS DE INTERACCIÓN (HOVER) --- */
+
+.guardian-container:hover .guardian {
+    transform: scale(1.1) translateY(-5px);
+    border-color: #00d2ff;
+    background: #0d0d0d;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+}
+
+/* Los ojos se abren y brillan */
+.guardian-container:hover .eye-left, 
+.guardian-container:hover .eye-right {
+    height: 10px;
+    background: #00d2ff;
+    box-shadow: 0 0 10px #00d2ff;
+    border-radius: 50%;
+}
+
+.guardian-container:hover .message-bubble {
+    opacity: 1;
+    top: -45px;
+    transform: scale(1.1);
+}
+
+
+
+/* Contenedor principal para ubicarlo en la pantalla */
+.status-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    text-align: right;
+    z-index: 1000;
+    pointer-events: none; /* Para que no estorbe si haces clic cerca */
+    background: rgba(0, 0, 0, 0.2); /* Fondo muy sutil */
+    padding: 10px 15px;
+    border-radius: 12px;
+    backdrop-filter: blur(5px); /* Efecto cristal */
+    border-right: 3px solid #00d2ff; /* Línea decorativa lateral */
+}
+
+/* Estilo para "Cochabamba, Bolivia" */
+.watermark {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+/* Estilo para los números del reloj */
+.clock {
+    font-family: 'Monaco', 'Consolas', monospace; /* Fuente tipo código */
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #00d2ff;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.7),
+                 0 0 20px rgba(0, 210, 255, 0.3);
+    letter-spacing: 1px;
+}
+
+
+
+.reloj-flotante {
+    position: fixed; /* Esto hace que te siga al bajar y subir */
+    bottom: 25px;
+    right: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(15, 15, 15, 0.7); /* Fondo oscuro traslúcido */
+    padding: 12px 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px); /* Desenfoque de fondo tipo iOS/Windows 11 */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 9999; /* Siempre por encima de todo */
+    transition: transform 0.3s ease;
+}
+
+/* Efecto para que se encoja un poquito al pasar el mouse */
+.reloj-flotante:hover {
+    transform: scale(1.05);
+    border-color: #00d2ff;
+}
+
+.reloj-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.reloj-ubicacion {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #00d2ff; /* Color cian tecnológico */
+    font-weight: 700;
+}
+
+.reloj-numeros {
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.reloj-barra-decorativa {
+    width: 4px;
+    height: 35px;
+    background: linear-gradient(to bottom, #00d2ff, #3a7bd5);
+    border-radius: 2px;
+}
+
+
+.reloj-flotante {
+    position: fixed; /* Esto hace que te siga al bajar y subir */
+    bottom: 25px;
+    right: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(15, 15, 15, 0.7); /* Fondo oscuro traslúcido */
+    padding: 12px 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px); /* Desenfoque de fondo tipo iOS/Windows 11 */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 9999; /* Siempre por encima de todo */
+    transition: transform 0.3s ease;
+}
+
+/* Efecto para que se encoja un poquito al pasar el mouse */
+.reloj-flotante:hover {
+    transform: scale(1.05);
+    border-color: #00d2ff;
+}
+
+.reloj-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.reloj-ubicacion {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #00d2ff; /* Color cian tecnológico */
+    font-weight: 700;
+}
+
+.reloj-numeros {
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.reloj-barra-decorativa {
+    width: 4px;
+    height: 35px;
+    background: linear-gradient(to bottom, #00d2ff, #3a7bd5);
+    border-radius: 2px;
+}
+
+.reloj-menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alineado a la izquierda como en tu foto */
+    padding-left: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.2); /* Separador sutil */
+    margin-left: 15px;
+}
+
+.reloj-loc {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.reloj-num {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Ajuste para móviles: si el menú se amontona, lo ocultamos o achicamos */
+@media (max-width: 768px) {
+    .reloj-menu-container {
+        border-left: none;
+        padding-left: 0;
+        margin-top: 10px;
+    }
+}
+
+.reloj-minimal-container {
+    padding: 5px 15px;
+    background: rgba(255, 255, 255, 0.03); /* Fondo casi invisible */
+    border-left: 2px solid #00d2ff; /* Línea de acento cian */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.reloj-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    color: #00d2ff;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.reloj-display {
+    font-family: 'JetBrains Mono', 'Courier New', monospace; /* Evita que el reloj se mueva */
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 500;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    white-space: nowrap;
+}
+
+/* Efecto al pasar el mouse por el menú */
+.nav-reloj:hover .reloj-minimal-container {
+    background: rgba(0, 210, 255, 0.05);
+    border-left-color: #ffffff;
+}
+
 }
